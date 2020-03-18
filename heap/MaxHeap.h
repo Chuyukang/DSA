@@ -10,7 +10,8 @@ public:
     MaxHeap();
     MaxHeap(int* data,int n);
     ~MaxHeap();
-    void heapify(int i);
+    void percolateDown(int i);
+    int percolateUP(int pos);
     void buildHeap();
     //for test
     void print();

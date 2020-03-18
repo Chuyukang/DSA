@@ -36,7 +36,7 @@ int MaxHeap::expandArray(int newCapacity)
     capacity = newCapacity;
     array = newArray;
 }
-void MaxHeap::heapify(int i)
+void MaxHeap::percolateDown(int i)
 {
     int left = 2*i+1,right=2*i+2;
     if(left>=size && right >=size)
@@ -47,14 +47,28 @@ void MaxHeap::heapify(int i)
     
     if(pos!=i){
         std::swap(array[i],array[pos]);
-        heapify(pos);
+        percolateDown(pos);
     }
     //else 为递归基
+}
+int MaxHeap::percolateUP(int pos)
+{
+    int key = array[pos];
+    int parent = getParent(pos);//parent指向上层待检查节点
+    while(parent>=0&&array[parent]<array[pos])//pos指向当前的“坑”，值已经向下迁移
+    {
+        array[pos] = array[parent];
+        pos = parent;
+        parent = getParent(parent);
+    }
+
+    array[pos] = key;
+    return pos;
 }
 void MaxHeap::buildHeap()
 {
     for(int i=size/2-1;i>=0;i--)//从第一个非叶子节点开始向下调整
-        heapify(i);
+        percolateDown(i);
 }
 void MaxHeap::print()
 {

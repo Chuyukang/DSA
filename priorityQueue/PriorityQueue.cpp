@@ -13,18 +13,8 @@ int PriorityQueue::increaseValue(int pos,int newValue)
 {
     if(newValue<=array[pos])
         return -1;
-    int parent = getParent(pos);//parent指向上层待检查节点
-    //debug
-    // std::cout << "pos=" << pos << ", parent=" << parent << "\n";
-    while (parent>=0&&array[parent]<newValue)
-    {
-        array[pos] = array[parent];
-        pos = parent;
-        parent = getParent(parent);
-        // std::cout << "pos=" << pos << ", parent=" << parent << "\n";
-    }
     array[pos] = newValue;
-    return pos;
+    return percolateUP(pos);
 }
 int PriorityQueue::insert(int value)
 {
@@ -39,7 +29,7 @@ int PriorityQueue::extractMax()
     int ans = array[0];
     array[0] = array[size-1];
     size --;
-    heapify(0);
+    percolateDown(0);
     return ans;
 }
 void PriorityQueue::print()
