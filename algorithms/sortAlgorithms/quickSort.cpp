@@ -1,5 +1,7 @@
 #include<algorithm>
 
+/* | <=pivot | >pivot  | ...  | pivot |*/
+/* |        i|         | j             */
 int partition(int array[],int p,int r)
 {
     int x = array[r];
