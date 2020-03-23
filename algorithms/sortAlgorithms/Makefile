@@ -4,4 +4,7 @@ quickSort : quickSort.cpp test.cpp
 countSort : countSort.cpp test.cpp
 	g++ -o ../../output/countSortTest countSort.cpp test.cpp
 	../../output/countSortTest
+bucketSort : bucketSort.cpp test.cpp
+	g++ -o ../../output/bucketSortTest bucketSort.cpp test.cpp
+	../../output/bucketSortTest
 	
