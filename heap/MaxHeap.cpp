@@ -36,6 +36,10 @@ int MaxHeap::expandArray(int newCapacity)
     capacity = newCapacity;
     array = newArray;
 }
+int MaxHeap::getSize()
+{
+    return size;
+}
 void MaxHeap::percolateDown(int i)
 {
     int left = 2*i+1,right=2*i+2;
@@ -69,6 +73,14 @@ void MaxHeap::buildHeap()
 {
     for(int i=size/2-1;i>=0;i--)//从第一个非叶子节点开始向下调整
         percolateDown(i);
+}
+int MaxHeap::getData(int result[],int n)
+{
+    if(n<size)
+        return -1;
+    for(int i=0;i<size;i++)
+        result[i] = array[i];
+    return 0;
 }
 void MaxHeap::print()
 {
