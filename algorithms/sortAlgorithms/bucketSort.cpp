@@ -10,13 +10,9 @@ void insertSort(double array[],int n)
     for(int i=1;i<n;i++)
     {
         double key = array[i];
-        int j=i-1;
-        for(;j>=0&&array[j]>key;j--)
-        {
-            array[j+1] = array[j];
-            //debug
-            std::cout << "array[" << j+1 <<"]\n";
-        }
+        int j=i;
+        for(;j>0&&array[j-1]>key;j--)
+            array[j] = array[j-1];
         array[j] = key;
     }
 }
@@ -34,8 +30,6 @@ void bucketSort(double array[],int n)
     {
         int index = (int)floor(array[i]*NUM);
         listArray[index][listSize[index]] = array[i];
-        //debug
-        std::cout << "insert a num at listArray[" << index << "][" << listSize[index] << "]\n";
         listSize[index]++;
     }
 
@@ -51,8 +45,8 @@ void bucketSort(double array[],int n)
         }
     }
     //释放数据结构
-    // for(int i=0;i<NUM;i++)
-    //     delete[] listArray[i];
+    for(int i=0;i<NUM;i++)
+        delete[] listArray[i];
 }
 double* preProcess(int array[],int n,int factor)
 {
