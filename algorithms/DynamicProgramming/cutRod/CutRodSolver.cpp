@@ -38,8 +38,8 @@ int CutRodSolver::getMaxValue()
 
     for(int i=2;i<=length;i++)//array[i]
     {
-        int max = price[i];
-        for(int j=1;j<i;j++)//price[j]+array[i-j]
+        int max = 0;
+        for(int j=1;j<=i;j++)//price[j]+array[i-j]
         {
             int temp = price[j] + array[i-j];
             if(temp>max)
