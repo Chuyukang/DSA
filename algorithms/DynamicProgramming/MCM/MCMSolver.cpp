@@ -1,5 +1,6 @@
 #include<vector>
 #include<iostream>
+#include<locale>
 #include "../../../tree/Tree.h"
 
 using namespace std;
@@ -77,7 +78,7 @@ Tree<int>* MCMSolver::getSolution(int i, int j)
     if(i==j)
         return new Tree<int>(i);
 
-    Tree<int> *root = new Tree<int>();
+    Tree<int> *root = new Tree<int>(0);//linux g++会初始化为0
     root->setLeft(getSolution(i,infoMatrix[i][j]));
     root->setRight(getSolution(infoMatrix[i][j]+1,j));
 
@@ -107,10 +108,11 @@ void printFunc(Tree<int>* root)
 }
 void testMCMSolver(int p[],int size)
 {
+    setlocale(LC_ALL,"");
     MCMSolver solver(p,size);
     for(int i=0;i<size;i++)
         cout << p[i] << (i<size-1?" ":"\n");
-    cout << "矩阵链乘所需的最小标量乘法数为：" << solver.getMaxMULNum() << "\n";
+    wcout << "矩阵链乘所需的最小标量乘法数为：" << solver.getMaxMULNum() << "\n";
     solver.printSolution();
     cout << "\n";
 }
