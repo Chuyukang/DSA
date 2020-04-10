@@ -1,3 +1,3 @@
-test : MaxHeap.cpp MaxHeap.h test.cpp
-	g++ -o ../output/MaxHeapTest MaxHeap.h test.cpp MaxHeap.cpp
+test : MaxHeap.cpp
+	g++ -o ../output/MaxHeapTest test.cpp
 	../output/MaxHeapTest
