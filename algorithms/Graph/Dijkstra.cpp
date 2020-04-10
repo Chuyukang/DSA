@@ -2,10 +2,11 @@
 #include"../../graph/Graph.h"
 
 using namespace std;
+//在不在最小距离的顶点集合中 找最小值的顶点编号
 int getMinIndex(vector<int>& dis,vector<bool> flag)
 {
     int min=__INT_MAX__;//trick
-    int pos = 0;//不是一个好的初始值，flag[0]可能为true
+    int pos = 0;//一定会在每次循环中找到最小值，初值不重要
     for(int i=0;i<dis.size();i++)
     {
         if(!flag[i]&&dis[i]<min)//flag为false的元素中的最小值
@@ -14,6 +15,7 @@ int getMinIndex(vector<int>& dis,vector<bool> flag)
             pos = i;
         }
     }
+    return pos;
 }
 vector<int> getShortestDis(Graph& g,int s=0)
 {
