@@ -16,7 +16,8 @@ public:
     int percolateUP(int pos);
     void buildHeap();
     int getData(T result[],int n);
-    //for test
+
+    virtual //for test
     void print();
 };
 

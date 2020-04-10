@@ -1,3 +1,4 @@
 output/
 .vscode/
 scratch/
+cmake-build-debug/

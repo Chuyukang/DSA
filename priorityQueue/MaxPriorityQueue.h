@@ -18,44 +18,44 @@ public:
 template<typename T>
 MaxPriorityQueue<T>::MaxPriorityQueue(){}
 template<typename T>
-MaxPriorityQueue<T>::MaxPriorityQueue(T *data,int n):MaxHeap(data,n) { }
+MaxPriorityQueue<T>::MaxPriorityQueue(T *data,int n):MaxHeap<T>(data,n) { }
 template<typename T>
 MaxPriorityQueue<T>::~MaxPriorityQueue() { }
 
 template<typename T>
 T MaxPriorityQueue<T>::getMax()
 {
-    return array[0];
+    return MaxHeap<T>::array[0];
 }
 template<typename T>
 int MaxPriorityQueue<T>::increaseValue(int pos,T newValue)
 {
-    if(newValue<=array[pos])
+    if(newValue<=MaxHeap<T>::array[pos])
         return -1;
-    array[pos] = newValue;
-    return percolateUP<T>(pos);
+    MaxHeap<T>::array[pos] = newValue;
+    return MaxHeap<T>::percolateUP(pos);
 }
 template<typename T>
 int MaxPriorityQueue<T>::insert(T value)
 {
-    size ++;
-    if(capacity<=size)
-        expandArray(capacity*2);
-    array[size-1] = value-1;
-    return increaseValue(size-1,value);
+    MaxHeap<T>::size ++;
+    if(MaxHeap<T>::capacity<=MaxHeap<T>::size)
+        MaxHeap<T>::expandArray(MaxHeap<T>::capacity*2);
+    MaxHeap<T>::array[MaxHeap<T>::size-1] = value-1;
+    return increaseValue(MaxHeap<T>::size-1,value);
 }
 template<typename T>
 T MaxPriorityQueue<T>::extractMax()
 {
-    int ans = array[0];
-    array[0] = array[size-1];
-    size --;
-    percolateDown(0);
+    int ans = MaxHeap<T>::array[0];
+    MaxHeap<T>::array[0] = MaxHeap<T>::array[MaxHeap<T>::size-1];
+    MaxHeap<T>::size --;
+    MaxHeap<T>::percolateDown(0);
     return ans;
 }
 template<typename T>
 void MaxPriorityQueue<T>::print()
 {
-    for(int i=0;i<size;i++)
-        std::cout << array[i] << (i<size-1?" ":"\n");
+    for(int i=0;i<MaxHeap<T>::size;i++)
+        std::cout << MaxHeap<T>::array[i] << (i<MaxHeap<T>::size-1?" ":"\n");
 }
