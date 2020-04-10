@@ -1,3 +1,3 @@
-test : ../heap/MaxHeap.h ../heap/MaxHeap.cpp PriorityQueue.h PriorityQueue.cpp test.cpp
-	g++ -o ../output/PriorityQueueTest ../heap/MaxHeap.h ../heap/MaxHeap.cpp PriorityQueue.h PriorityQueue.cpp test.cpp
+test : test.cpp 
+	g++ -o ../output/PriorityQueueTest test.cpp MaxPriorityQueue.h ../heap/MaxHeap.h
 	../output/PriorityQueueTest

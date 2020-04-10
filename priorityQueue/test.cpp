@@ -1,10 +1,10 @@
 #include<iostream>
-#include"PriorityQueue.h"
+#include"MaxPriorityQueue.h"
 
 int main()
 {
     int data[8]={4,5,1,3,2,6,9,7};
-    PriorityQueue priorityQueue(data,8);
+    MaxPriorityQueue<int> priorityQueue(data,8);
     priorityQueue.print();
 
     std::cout << "getMax:" << priorityQueue.getMax() << "\n";
