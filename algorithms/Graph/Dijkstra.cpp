@@ -1,7 +1,27 @@
 #include<iostream>
+#include<queue>
 #include"../../graph/Graph.h"
 
 using namespace std;
+
+// struct disPair{
+//     int nodeNum;
+//     int *disPointer;
+//     disPair(int _nodeNum,int* _disPointer){nodeNum=_nodeNum; disPointer = _disPointer;}
+// };
+// auto gt = [](const disPair& p1,const disPair& p2){ return *(p1.disPointer)>*(p2.disPointer);};
+
+// vector<int> getShortestDis(Graph& g,int s=0)
+// {
+//     int v_num=g.getVnum();
+//     //距离向量
+//     vector<int> dis(v_num);
+//     //优先级队列
+//     priority_queue<disPair,vector<disPair>,decltype(gt)> pq(gt);
+//     for(int i=0;i<v_num;i++)
+//         pq.push(disPair(i,&dis[i]));
+//     /*无法在dis被改变时，重新建堆，标准库提供的优先级队列不可直接用*/
+// }
 //在不在最小距离的顶点集合中 找最小值的顶点编号
 int getMinIndex(vector<int>& dis,vector<bool> flag)
 {
