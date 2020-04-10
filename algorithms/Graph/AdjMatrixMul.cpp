@@ -5,7 +5,7 @@
 using namespace std;
 
 typedef vector<vector<int> > adjMatrix;
-//经过一条边可得到的最短路
+//经过adj邻接矩阵可得到的最短路
 adjMatrix extendAdjMatrix(adjMatrix lMatrix, adjMatrix adj)
 {
     int v_num = lMatrix.size();
@@ -14,9 +14,11 @@ adjMatrix extendAdjMatrix(adjMatrix lMatrix, adjMatrix adj)
     {
         for(int j=0;j<v_num;j++)
         {
+            //尝试松弛
             for(int k=0;k<v_num;k++)
             {
-                if(adj[k][j] < __INT_MAX__ && lMatrix[i][k]<__INT_MAX__)//如果存在边(k,j)
+                //如果存在边(k,j)，且原最短距离小于 无穷
+                if(adj[k][j] < __INT_MAX__ && lMatrix[i][k]<__INT_MAX__)
                 {
                     int temp = lMatrix[i][k] + adj[k][j];
                     if(temp < lMatrix[i][j])//松弛步
@@ -45,7 +47,6 @@ adjMatrix fastExtend(adjMatrix adj)
         adj = extendAdjMatrix(adj,adj);
     return adj;
 }
-
 //计算图中任意两点对之间的最短路径距离
 adjMatrix getShortestDis(const adjMatrix& adj)
 {
@@ -87,7 +88,7 @@ int main()
     adj[4][3] = 9;
     //计算最短路径长度
     adjMatrix shortestPath = getShortestDis(adj);
-
+    //设置locale，配合wcout，使utf-8格式文件的中文字符正确被打印
     setlocale(LC_ALL,"");
     wcout << "图的邻接矩阵：\n";
     print(adj);
