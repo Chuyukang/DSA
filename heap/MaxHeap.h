@@ -1,3 +1,5 @@
+#include <iostream>
+#include <algorithm>
 template<typename T>
 class MaxHeap
 {
@@ -120,7 +122,7 @@ void MaxHeap<T>::print()
         if(index%base==0){
             std::cout << "\n";
             index=1;
-            base <<= 1;
+            base *= 2;
         }
         else{
             std::cout << " ";

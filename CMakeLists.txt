@@ -5,3 +5,5 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(MaxeapTest heap/MaxHeap.h heap/test.cpp)
 add_executable(MaxPriorityQueueTest priorityQueue/MaxPriorityQueue.h priorityQueue/test.cpp)
+add_executable(HeapSortTest algorithms/sortAlgorithms/heapSort.cpp algorithms/sortAlgorithms/test.cpp)
+add_executable(QuickSortTest algorithms/sortAlgorithms/quickSort.cpp algorithms/sortAlgorithms/test.cpp)

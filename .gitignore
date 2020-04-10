@@ -2,3 +2,4 @@ output/
 .vscode/
 scratch/
 cmake-build-debug/
+.idea/
