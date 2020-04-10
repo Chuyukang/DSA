@@ -17,7 +17,7 @@ adjMatrix extendAdjMatrix(adjMatrix lMatrix, adjMatrix adj)
             //尝试松弛
             for(int k=0;k<v_num;k++)
             {
-                //如果存在边(k,j)，且原最短距离小于 无穷
+                //如果存在边(k,j)，且i顶点到k顶点之间存在路径
                 if(adj[k][j] < __INT_MAX__ && lMatrix[i][k]<__INT_MAX__)
                 {
                     int temp = lMatrix[i][k] + adj[k][j];
@@ -77,15 +77,15 @@ int main()
     for(int i=0;i<v_num;i++)
         adj[i][i] = 0;
     //添加边
-    adj[0][1] = 10;
-    adj[0][2] = 3;
-    adj[1][2] = 1;
-    adj[1][3] = 2;
+    adj[0][1] = 3;
+    adj[0][2] = 8;
+    adj[0][4] = -4;
+    adj[1][3] = 1;
+    adj[1][4] = 7;
     adj[2][1] = 4;
-    adj[2][3] = 8;
-    adj[2][4] = 2;
-    adj[3][4] = 7;
-    adj[4][3] = 9;
+    adj[3][0] = 2;
+    adj[3][2] = -5;
+    adj[4][3] = 6;
     //计算最短路径长度
     adjMatrix shortestPath = getShortestDis(adj);
     //设置locale，配合wcout，使utf-8格式文件的中文字符正确被打印
