@@ -3,7 +3,6 @@
 #include"../../graph/Graph.h"
 
 using namespace std;
-
 // struct disPair{
 //     int nodeNum;
 //     int *disPointer;
@@ -37,6 +36,7 @@ int getMinIndex(vector<int>& dis,vector<bool> flag)
     }
     return pos;
 }
+//单源最短路，Dijkstra算法
 vector<int> getShortestDis(Graph& g,int s=0)
 {
     int v_num=g.getVnum();

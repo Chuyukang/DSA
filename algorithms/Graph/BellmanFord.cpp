@@ -3,10 +3,33 @@
 #include"../../graph/Graph.h"
 
 using namespace std;
-
+//单源最短路，Bellman-Ford算法
 vector<int> getShortestDis(Graph& g,int s=0)
 {
+    int v_num = g.getVnum();
+    vector<int> dis(v_num);
+    for(int i=0;i<v_num;i++)
+        dis[i] = __INT_MAX__;//trick
 
+    dis[s] = 0;
+    //最多遍历V次
+    for(int i=0;i<v_num;i++)
+    {
+        //简陋的遍历边
+        for(int u=0;u<v_num;u++)
+        {
+            for(int v=0;v<v_num;v++)
+            {
+                if(g.existsEdge(u,v))
+                {
+                    int temp=dis[u]+g.getWeight(u,v);
+                    if(dis[v]>temp)//松弛步
+                        dis[v] = temp;
+                }
+            }
+        }
+    }
+    return dis;
 }
 
 int main()
