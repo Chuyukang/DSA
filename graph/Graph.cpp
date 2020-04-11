@@ -43,3 +43,8 @@ bool Graph::existsEdge(int u,int v)
 {
     return adjMatrix[u][v]<__INT_MAX__ ;
 }
+
+void Graph::setWeight(int u, int v, int weight)
+{
+    adjMatrix[u][v] = weight;
+}
