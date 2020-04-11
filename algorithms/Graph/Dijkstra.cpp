@@ -37,7 +37,7 @@ int getMinIndex(vector<int>& dis,vector<bool> flag)
     return pos;
 }
 //单源最短路，Dijkstra算法
-vector<int> getShortestDis(Graph& g,int s=0)
+vector<int> Dijkstra(Graph& g,int s=0)
 {
     int v_num=g.getVnum();
     //距离向量

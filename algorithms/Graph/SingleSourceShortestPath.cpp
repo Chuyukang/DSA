@@ -7,7 +7,8 @@
 
 using namespace std;
 
-extern vector<int> getShortestDis(Graph& g,int s=0);
+extern vector<int> Dijkstra(Graph& g,int s=0);
+extern vector<int> BellmanFord(Graph& g,int s=0);
 
 int main()
 {
@@ -22,10 +23,17 @@ int main()
     g.insertEdge(3,4,7);
     g.insertEdge(4,3,9);
 
-    vector<int> dis = getShortestDis(g,0);
-
-    for(int x:dis)
+    cout << "Dijkstra Algorithm:\n";
+    vector<int> dis1 = Dijkstra(g,0);
+    for(int x:dis1)
         cout << x << " ";
     cout << "\n";
+
+    cout << "BellmanFord Algorithm:\n";
+    vector<int> dis2 = BellmanFord(g,0);
+    for(int x:dis2)
+        cout << x << " ";
+    cout << "\n";
+
     return 0;
 }

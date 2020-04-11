@@ -1,11 +1,9 @@
 #include<vector>
-#include <exception>
 #include"../../graph/Graph.h"
 
 using namespace std;
-class existsNegativeCycle : public exception{};
 //单源最短路，Bellman-Ford算法
-vector<int> getShortestDis(Graph& g,int s=0)
+vector<int> BellmanFord(Graph& g,int s=0)
 {
     int v_num = g.getVnum();
     vector<int> dis(v_num);
@@ -30,22 +28,9 @@ vector<int> getShortestDis(Graph& g,int s=0)
             }
         }
     }
-    //若最短路径不收敛，则有负权重回路，抛出异常 existsNegativeCycle
-    for(int u=0;u<v_num;u++)
-    {
-        for(int v=0;v<v_num;v++)
-        {
-            if(g.existsEdge(u,v))
-            {
-                int temp=dis[u]+g.getWeight(u,v);
-                if(dis[v]>temp)
-                    throw existsNegativeCycle();
-            }
-        }
-    }
     return dis;
 }
-bool BellmanFord(Graph& g,int s,vector<int>& dis)
+bool BellmanFord_N(Graph& g,int s,vector<int>& dis)
 {
     int v_num = g.getVnum();
     for(int i=0;i<v_num;i++)
