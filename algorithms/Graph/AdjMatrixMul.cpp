@@ -46,7 +46,7 @@ adjMatrix fastExtend(adjMatrix adj)
     return adj;
 }
 //计算图中任意两点对之间的最短路径距离
-adjMatrix getShortestDis(const adjMatrix& adj)
+adjMatrix getShortestDis(adjMatrix& adj)
 {
     return fastExtend(adj);
 }

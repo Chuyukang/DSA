@@ -11,5 +11,5 @@ add_executable(SingleSourceShortestPathTest algorithms/Graph/SingleSourceShortes
         algorithms/Graph/BellmanFord.cpp algorithms/Graph/Dijkstra.cpp graph/Graph.cpp)
 add_executable(AdjMatrixMulTest algorithms/Graph/AllPairsShortestPath.cpp algorithms/Graph/AdjMatrixMul.cpp )
 add_executable(FloydWarshallTest algorithms/Graph/AllPairsShortestPath.cpp algorithms/Graph/FloydWarshall.cpp)
-add_executable(JohnsonTest algorithms/Graph/AllPairsShortestPath.cpp
+add_executable(JohnsonTest graph/Graph.cpp
         algorithms/Graph/Johnson.cpp algorithms/Graph/Dijkstra.cpp algorithms/Graph/BellmanFord.cpp)

@@ -48,3 +48,7 @@ void Graph::setWeight(int u, int v, int weight)
 {
     adjMatrix[u][v] = weight;
 }
+
+vector<vector<int>> Graph::getadjMatrix() {
+    return adjMatrix;
+}

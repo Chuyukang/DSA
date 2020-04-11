@@ -7,7 +7,7 @@
 using namespace std;
 typedef vector<vector<int> > adjMatrix;
 
-extern adjMatrix getShortestDis(const adjMatrix& adj);
+extern adjMatrix getShortestDis(adjMatrix& adj);
 
 //打印最短距离矩阵
 void print(const adjMatrix& adj)

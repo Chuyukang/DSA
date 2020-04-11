@@ -18,4 +18,6 @@ public:
     int getWeight(int u,int v);
     void setWeight(int u,int v,int weight);
     bool existsEdge(int u,int v);
+    //test
+    vector<vector<int>> getadjMatrix();
 };
