@@ -1,8 +1,11 @@
+#include <iostream>
 #include <vector>
 
 using namespace std;
 typedef vector<vector<int> > adjMatrix;
 
+//打印最短距离矩阵
+extern void print(const adjMatrix& adj);
 //计算图中任意两点对之间的最短路径距离
 adjMatrix getShortestDis(adjMatrix& adj)
 {
@@ -24,6 +27,8 @@ adjMatrix getShortestDis(adjMatrix& adj)
                 }
             }
         }
+//        print(cMatrix);
+//        cout << "\n";
     }
     return cMatrix;
 }

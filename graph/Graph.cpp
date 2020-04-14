@@ -10,7 +10,7 @@ Graph::Graph(int _v_num)
     v_num = _v_num;
 
     for(int i=0;i<v_num;i++)
-        adjMatrix.push_back(vector<int>(v_num));
+        adjMatrix.emplace_back(v_num);
 
     for(int i=0;i<v_num;i++)
         for(int j=0;j<v_num;j++)
@@ -51,4 +51,18 @@ void Graph::setWeight(int u, int v, int weight)
 
 vector<vector<int>> Graph::getadjMatrix() {
     return adjMatrix;
+}
+
+void Graph::insertNode() {
+    for(int i=0;i<v_num;i++)
+        adjMatrix[i].push_back(__INT_MAX__);
+    v_num++;
+    adjMatrix.emplace_back(vector<int>(v_num,0));
+}
+
+void Graph::popNode() {
+    for(auto v:adjMatrix)
+        v.pop_back();
+    adjMatrix.pop_back();
+    v_num--;
 }

@@ -1,8 +1,11 @@
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
 typedef vector<vector<int> > adjMatrix;
+//打印最短距离矩阵
+extern void print(const adjMatrix& adj);
 //经过adj邻接矩阵可得到的最短路
 adjMatrix extendAdjMatrix(adjMatrix lMatrix, adjMatrix adj)
 {
@@ -33,16 +36,28 @@ adjMatrix slowExtend(const adjMatrix& adj)
     int v_num=adj.size();
 
     adjMatrix lMatrix=adj;
+    print(lMatrix);
+    cout << "\n";
     for(int i=1;i<v_num-1;i++)
+    {
         lMatrix = extendAdjMatrix(lMatrix, adj);
+        print(lMatrix);
+        cout << "\n";
+    }
     return lMatrix;
 }
 //类似快速幂算法
 adjMatrix fastExtend(adjMatrix adj)
 {
     int v_num = adj.size();
+    print(adj);
+    cout << "\n";
     for(int i=1;i<v_num;i*=2)
+    {
         adj = extendAdjMatrix(adj,adj);
+        print(adj);
+        cout << "\n";
+    }
     return adj;
 }
 //计算图中任意两点对之间的最短路径距离
