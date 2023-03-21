@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void printFunc(Tree<int>* root);
+void printFunc(const Tree<int>* root);
 
 class MCMSolver
 {
@@ -20,7 +20,7 @@ public:
     MCMSolver(int _p[],int n);
     ~MCMSolver();
     int getMaxMULNum();
-    Tree<int>* getSolution(int i, int j);
+    unique_ptr<Tree<int>> getSolution(int i, int j);
     void printSolution();
 };
 
@@ -73,12 +73,12 @@ int MCMSolver::getMaxMULNum()
     }
     return matrix[1][num];
 }
-Tree<int>* MCMSolver::getSolution(int i, int j)
+unique_ptr<Tree<int>> MCMSolver::getSolution(int i, int j)
 {
     if(i==j)
-        return new Tree<int>(i);
+        return make_unique<Tree<int>>(i);
 
-    Tree<int> *root = new Tree<int>(0);//linux g++会初始化为0
+    unique_ptr<Tree<int>> root = make_unique<Tree<int>>(0);
     root->setLeft(getSolution(i,infoMatrix[i][j]));
     root->setRight(getSolution(infoMatrix[i][j]+1,j));
 
@@ -86,10 +86,10 @@ Tree<int>* MCMSolver::getSolution(int i, int j)
 }
 void MCMSolver::printSolution()
 {
-    Tree<int>* root = getSolution(1,num);
-    printFunc(root);
+    unique_ptr<Tree<int>> root = getSolution(1,num);
+    printFunc(root.get());
 }
-void printFunc(Tree<int>* root)
+void printFunc(const Tree<int>* root)
 {
     if(root==nullptr)
         return;
@@ -116,3 +116,4 @@ void testMCMSolver(int p[],int size)
     solver.printSolution();
     cout << "\n";
 }
+
