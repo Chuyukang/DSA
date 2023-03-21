@@ -1,3 +1,4 @@
+#include<iostream>
 #include<functional>
 #include<memory>
 
@@ -34,7 +35,11 @@ Tree<T>::Tree(const T& _data)
 }
 template<typename T>
 Tree<T>::~Tree()
-{ }
+{
+#ifdef TEST
+    cout << "Desctructor called for data: " << data << '\n';
+#endif
+}
 
 template<typename T>
 T Tree<T>::getData() const
