@@ -1,4 +1,4 @@
-#include "../heap/MaxHeap.h"
+#include "MaxHeap.h"
 
 template<typename T>
 class MaxPriorityQueue: public MaxHeap<T>

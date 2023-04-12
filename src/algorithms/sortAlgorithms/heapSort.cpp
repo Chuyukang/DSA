@@ -1,4 +1,4 @@
-#include "../../priorityQueue/MaxPriorityQueue.h"
+#include "ds/MaxPriorityQueue.h"
 
 const int SIZE = 20;
 

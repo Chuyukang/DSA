@@ -1,7 +1,7 @@
 #include<vector>
 #include<iostream>
 #include<locale>
-#include "../../../tree/Tree.h"
+#include "include/ds/Tree.h"
 
 using namespace std;
 

@@ -3,7 +3,7 @@
 #include<string>
 #include<vector>
 #include<algorithm>
-#include "../../../common/Point.h"
+#include "common/Point.h"
 
 using namespace std;
 

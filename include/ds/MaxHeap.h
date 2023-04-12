@@ -8,7 +8,7 @@ protected:
     int size;
     int capacity;
     int getParent(int x);
-    int expandArray(int newCapacity);
+    void expandArray(int newCapacity);
 public:
     MaxHeap();
     MaxHeap(T* data,int n);
@@ -55,7 +55,7 @@ int MaxHeap<T>::getParent(int x)
         return x/2-1;
 }
 template<typename T>
-int MaxHeap<T>::expandArray(int newCapacity)
+void MaxHeap<T>::expandArray(int newCapacity)
 {
     int *newArray=new int[newCapacity];
     for(int i=0;i<size;i++)
@@ -89,7 +89,7 @@ int MaxHeap<T>::percolateUP(int pos)
 {
     int key = array[pos];
     int parent = getParent(pos);//parent指向上层待检查节点
-    while(parent>=0&&array[parent]<array[pos])//pos指向当前的“坑”，值已经向下迁移
+    while(parent>=0&&array[parent]<key)//pos指向当前的“坑”，值已经向下迁移
     {
         array[pos] = array[parent];
         pos = parent;

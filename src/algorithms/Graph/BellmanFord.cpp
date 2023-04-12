@@ -1,6 +1,6 @@
 #include<iostream>
 #include<vector>
-#include"../../graph/Graph.h"
+#include"ds/Graph.h"
 
 using namespace std;
 //单源最短路，Bellman-Ford算法

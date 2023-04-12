@@ -1,6 +1,6 @@
 #include<iostream>
 #include<queue>
-#include"../../graph/Graph.h"
+#include"ds/Graph.h"
 
 using namespace std;
 // struct disPair{

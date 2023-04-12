@@ -1,5 +1,5 @@
 #include<iostream>
-#include"MaxPriorityQueue.h"
+#include"ds/MaxPriorityQueue.h"
 
 int main()
 {
@@ -18,5 +18,6 @@ int main()
 
     priorityQueue.insert(11);
     priorityQueue.print();
+
     return 0;
 }

@@ -3,7 +3,7 @@
 //
 #include <iostream>
 #include <vector>
-#include "../../graph/Graph.h"
+#include "ds/Graph.h"
 
 using namespace std;
 typedef vector<vector<int> > adjMatrix;
