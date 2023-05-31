@@ -1,4 +1,6 @@
-#include<algorithm>
+#include "algo/sort.h"
+#include "algo/quicksort.h"
+#include <algorithm>
 
 /* | <=pivot | >pivot  | ...  | pivot |*/
 /* |        i|         | j             */
@@ -26,7 +28,6 @@ void quickSort(int array[],int low,int high)
     quickSort(array,pivot+1,high);
 }
 
-void sort(int array[],int n)
-{
-    quickSort(array,0,n-1);
+void quicksortAlgo::sort(std::vector<int> &vec) {
+    quickSort(vec.data(), 0, vec.size()-1);
 }

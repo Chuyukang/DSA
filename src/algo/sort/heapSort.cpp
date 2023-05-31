@@ -1,6 +1,6 @@
+#include "algo/sort.h"
+#include "algo/heapsort.h"
 #include "ds/MaxPriorityQueue.h"
-
-const int SIZE = 20;
 
 void heapSort(int array[],int n)
 {
@@ -11,7 +11,6 @@ void heapSort(int array[],int n)
         array[i] = pq.extractMax();
 }
 
-void sort(int array[],int n)
-{
-    heapSort(array,n);
+void heapsortAlgo::sort(std::vector<int> &vec) {
+    heapSort(vec.data(), vec.size());
 }
