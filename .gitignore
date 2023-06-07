@@ -1,5 +1,9 @@
-output/
-.vscode/
-scratch/
-cmake-build-debug/
 .idea/
+.vscode/
+
+output/
+cmake-build-debug/
+compile_commands.json
+
+scratch/
+
