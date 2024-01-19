@@ -34,6 +34,7 @@ add_executable(
         tests/test_sort.cpp
         src/algo/sort/quickSort.cpp
         src/algo/sort/heapSort.cpp
+        src/algo/sort/mergeSort.cpp
 )
 target_link_libraries(test_sort GTest::gtest_main)
 include(GoogleTest)
