@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
 project(DSA)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include_directories(include)
@@ -51,3 +51,7 @@ target_link_libraries(bench_sort benchmark::benchmark)
 add_executable(test_heap tests/test_heap.cpp tests/bench_sort.cpp)
 add_executable(test_pq tests/test_pq.cpp)
 add_executable(test_tree tests/test_tree.cpp)
+
+add_executable(test_trie tests/test_trie.cpp src/ds/Trie.cpp)
+target_link_libraries(test_trie GTest::gtest_main)
+gtest_discover_tests(test_trie)
